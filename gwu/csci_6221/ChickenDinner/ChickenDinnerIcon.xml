@@ -1,0 +1,16 @@
+<Atlas>
+    <!--use Pixel format : DXT5
+            Texture type : 1D
+            Mipmap resize filters : default
+            [Generate Mipmaps]: Ticked
+            [Pre-multiply Alpha]: Ticked  -->
+    <Texture filename="ChickenDinnerIcon.tex" />
+    <Elements>
+        <!-- u1(start_x1), u2(start_x2), v1(start_y1), v2(start_y2)-->
+        <!-- start_x1 = start_x1_position /resolution_x  
+            e.g. image 1 (x1,y1)==(250, 100) to (x2,y2)==(300, 200) 
+                 resolution =1024*1024
+                 so u1 = 250/1024-->
+        <Element name="ChickenDinnerIcon.tex" u1="0" u2="1" v1="0" v2="1" />
+    </Elements>
+</Atlas>
