@@ -10,7 +10,33 @@ in the small one, there are many aspects of it.
 
 (3) fire proof: the fire will not harm to Nezha
 
-(4) tough: the if the HP reducing to 5%, it will cover to 20%.(only once) 
+(4) tough: the if the HP reducing to 5%, it will cover to 20%.(only once)
+
+
+(5) there are three kinds values of Nezha: brain/heart/stomach. 
+
+
+
+the brain value has three parts: low mid high: low is 20% as common character; mid is 40%, high is 80%.
+
+
+
+heart:low is 40% as common character; mid is 80%;high is 130%
+
+
+
+stomach: low is 30% ;mid is 60%; high is 100%.
+
+
+
+attacking: with/without huntianling 110% as common character/ 120%
+
+
+with/without huojianqiang: 110%/210%
+
+
+with/without: fenghuolun: 110%/110%
+
 
 ## big one
 (1) HP will has 50% more than the small
