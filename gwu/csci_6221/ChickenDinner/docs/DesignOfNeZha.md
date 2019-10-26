@@ -5,11 +5,11 @@ Ne Zha has two forms: the big one and the small one.
 //in the small one, there are many aspects of it.
 <br>
 (1).cheating: Nezha is very good at cheating, so in the small one, the animal will not attack him back if he attacked the animals less than three hits.
-<br>
+
 (2).being creazy:in the full moon day, Nezha will trun into the big form and burning the forest around him.
-<br>
+
 (3).fire proof: the fire will not harm to Nezha
-<br>
+
 (4).tough: the if the HP reducing to 5%, it will cover to 20%.(only once) 
 <br>
 //the big one.
