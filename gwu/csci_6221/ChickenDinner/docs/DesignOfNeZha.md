@@ -23,9 +23,7 @@ Ne Zha has two forms: the big one and the small one.
 (4).attack damage will improve two time as before
 <br>
 (5).consuming more foods
-<br>
 # item
-<br>
 ## weapons
 <br>
 1.huntianling
@@ -39,7 +37,6 @@ it it a attack weapon, inprove 30% damage. Melee
 3.fenghuolun
 <br>
 it is not a weapon, it will help Nezha moves faster.
-<br>
 # others
 <br>
 will Nezha in the big status, the brain value will reduce timely. After the value less than 70%, it will lost control and the eyes will become totally drak.
