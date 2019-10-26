@@ -1,6 +1,3 @@
-<br>
-Use English, or you need translate all of them at the end
-<br>
 # character statues
 <br>
 Ne Zha has two forms: the big one and the small one.
