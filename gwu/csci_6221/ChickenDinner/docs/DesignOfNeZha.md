@@ -6,7 +6,7 @@ in the small one, there are many aspects of it.
 
 (1) cheating: Nezha is very good at cheating, so in the small one, the animal will not attack him back if he attacked the animals less than three hits.
 
-(2) being creazy:in the full moon day, Nezha will trun into the big form and burning the forest around him.
+(2) being crazy:in the full moon day, Nezha will turn into the big form and burning the forest around him.
 
 (3) fire proof: the fire will not harm to Nezha
 
@@ -17,7 +17,7 @@ in the small one, there are many aspects of it.
 
 (2) the brain value will reducing while in Big 
 
-(3) only continuning some mins
+(3) only continuing some mins
 
 (4) attack damage will improve two time as before
 
@@ -28,10 +28,10 @@ in the small one, there are many aspects of it.
 ### 1. huntianling
 it can attack,but not much. remote attack. the main function of it is that it will help Nezha build tools faster.
 ### 2. huojianqiang
-it it a attack weapon, inprove 30% damage. Melee
+it it a attack weapon, improve 30% damage. Melee
 ### 3. fenghuolun
 it is not a weapon, it will help Nezha moves faster.
 
 # others
-will Nezha in the big status, the brain value will reduce timely. After the value less than 70%, it will lost control and the eyes will become totally drak.
+will Nezha in the big status, the brain value will reduce timely. After the value less than 70%, it will lost control and the eyes will become totally dark.
 
