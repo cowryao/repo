@@ -1,17 +1,3 @@
-# character statues
-哪吒是有两个形态的,大形态和小形态
-<br>
-///大形态应该长什么样子，有什么初始参数（如：生命值、饥饿值) 
-
-# item
-## weapons
-三个专属武器,火尖枪/混天绫/风火轮
-<br>
-///分别是什么样子，可以攻击吗、可以做工具吗、各项参数是多少？？如：攻击力是多少、攻击的时候应该是近战还是远程
-
-大形态会随时间降落san值，san值到一定程度就会眼神改变成全黑的
-<br>
-///眼神变成全黑的是什么意思
 <br>
 Use English, or you need translate all of them at the end
 <br>
@@ -41,9 +27,9 @@ Ne Zha has two forms: the big one and the small one.
 <br>
 (5).consuming more foods
 <br>
-#item
+# item
 <br>
-##weapons
+## weapons
 <br>
 1.huntianling
 <br>
@@ -57,7 +43,7 @@ it it a attack weapon, inprove 30% damage. Melee
 <br>
 it is not a weapon, it will help Nezha moves faster.
 <br>
-#others
+# others
 <br>
 will Nezha in the big status, the brain value will reduce timely. After the value less than 70%, it will lost control and the eyes will become totally drak.
 
