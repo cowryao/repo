@@ -50,5 +50,5 @@ it it a attack weapon, improve 30% damage. Melee
 it is not a weapon, it will help Nezha moves faster.
 
 # others
-will Nezha in the big status, the brain value will reduce timely. After the value less than 70%, it will lost control and the eyes will become totally dark.
+while Nezha in the big status, the brain value will reduce timely. After the value less than 70%, it will lost control and the eyes will become totally dark.
 
