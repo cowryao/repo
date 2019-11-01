@@ -1,2 +1,2 @@
 # Gwu
-All of my gwu projects are list in this folder
+All my gwu projects are list in this folder
