@@ -1,53 +1,53 @@
-# character statues
-Ne Zha has two forms: the big one and the small one.
+哪吒的设计
+1、	概述
+哪吒分成两个形态，一个是大形态，一个是小形态，初始是以小形态，达到某种条件的时候就会变成大形态。而大形态到达某种条件之后就会变回小形态。具体条件会在后面详细描述。
+2、	小形态
+（1）	初始数值
+小形态的初始数值有三个:胃部/脑子/心脏.
+1.	胃部数值和正常角色一致,降低速率比正常角色低,增加的方式和数值和正常角色一致
+2.	脑子数值和正常角色一致,降低速率比正常角色高, 增加的方式和数值和正常角色一致
+3.	心脏数值比正常角色高,只有受伤才能降低.和正常角色一致, 增加的方式和数值和正常角色一致
+4.	移动速度和正常角色一致.
+5.	防御数值和正常角色一致.
+（2）	攻击数值
+因为空手状态下所有人物是不能够进行攻击的.
+而持有斧子/铁锹等游戏设置好的工具进行攻击的时候数值和正常角色一致.
+   (3) 特异属性
+	1.欺骗性:小形态下的哪吒可以攻击中立动物(牛/猪人)三下以内(含)而不会被反击
+	2.防火性:正常角色在大火(比如在森林中点火点燃树林)中会失去心脏数值,而哪吒不会
+	3.坚韧性:哪吒的心脏数值在低于5%的时候会回复到20%,但是只有一次.
+	4.在月圆之夜(即猪人变身的那一天)哪吒会变成大形态.一切数据按照大形态来进行.
 
-## Small one
-## basic features
-(1) cheating: Nezha is very good at cheating, so in the small one, the animal will not attack him back if he attacked the animals less than three hits.
+3、	物品
+哪吒持有的物品有三个:乾坤圈/混天绫/火尖枪
+1.	乾坤圈
+一个金色的圆环,斜挎在哪吒的身体上.
+功能:增加脑子数据,带上后将增加20%.正常角色会通过捡花等方式获得脑子数据恢复.不戴乾坤圈,恢复和正常值一致,带上会额外恢复一点/一次.不能攻击
+2.	火尖枪
+近距离攻击物品,持在手上,攻击力是锤子的5倍.不能攻击树木,只能攻击生物.
+3.	风火轮
+放在脚下,提升移动速度至原速度的3倍.
+4.	混天绫
+防具,缠绕在哪吒身上,提升防御力至原先的2倍.
+4、	大形态
+(1).初始数值
+1.	胃部数值和正常角色一致,降低速率比正常角色高,增加的方式和数值和正常角色一致
+2.	脑子数值比正常角色低,降低速率比正常角色高, 增加的方式和数值和正常角色一致
+3.	心脏数值比正常角色高,只有受伤才能降低.和正常角色一致, 增加的方式和数值和正常角色一致
+4.	移动速度比正常角色高.
+5.	防御数值和正常角色一致.
+(2). 特异属性
+	1.欺骗性:和小形态一致
+2.防火性:正常角色在大火(比如在森林中点火点燃树林)中会失去心脏数值,而哪吒不会
+	3.坚韧性:哪吒的心脏数值在低于5%的时候会回复到20%,但是只有一次.
+	4.攻击性:攻击数值是小形态哪吒的2倍.
+5.脑残性:脑子数值随时间而降低降低速率是小哪吒的3倍.
+5、	转化
+小哪吒在月圆之夜会转化成大哪吒.
+或者
+小哪吒在脑子数值低于60%的时候会转化
 
-(2) being crazy:in the full moon day, Nezha will turn into the big form and burning the forest around him.
-
-(3) fire proof: the fire will not harm to Nezha
-
-(4) tough: the if the HP reducing to 5%, it will cover to 20%.(only once)
-
-(5) there are three kinds values of Nezha: brain/heart/stomach. 
-
-
-### value design
-the brain value has three parts: low mid high: low is 20% as common character; mid is 40%, high is 80%.
-
-heart:low is 40% as common character; mid is 80%;high is 130%
-
-stomach: low is 30% ;mid is 60%; high is 100%.
-
-attacking: with/without huntianling 110% as common character/ 120%
-
-with/without huojianqiang: 110%/210%
-
-with/without: fenghuolun: 110%/110%
-
-
-## big one
-(1) HP will has 50% more than the small
-
-(2) the brain value will reducing while in Big 
-
-(3) only continuing some mins
-
-(4) attack damage will improve two time as before
-
-(5) consuming more foods
-
-# item
-## weapons
-### 1. huntianling
-it can attack,but not much. remote attack. the main function of it is that it will help Nezha build tools faster.
-### 2. huojianqiang
-it it a attack weapon, improve 30% damage. Melee
-### 3. fenghuolun
-it is not a weapon, it will help Nezha moves faster.
-
-# others
-while Nezha in the big status, the brain value will reduce timely. After the value less than 70%, it will lost control and the eyes will become totally dark.
+大哪吒在月圆之夜过去也就是第二天会回复
+第二种情况下
+大哪吒在脑子数值达到60%会转化
 
