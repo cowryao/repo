@@ -11,7 +11,6 @@ Ne Zha has two forms: the big one and the small one.
 
 (4) tough: the if the HP reducing to 5%, it will cover to 20%.(only once)
 
-
 (5) there are three kinds values of Nezha: brain/heart/stomach. 
 
 
