@@ -1,0 +1,7 @@
+here are some references we used to build this project
+
+team icon
+https://dlpng.com/png/5924677
+
+don't starve Unofficial API documentation
+http://dontstarveapi.com/tutorials/
