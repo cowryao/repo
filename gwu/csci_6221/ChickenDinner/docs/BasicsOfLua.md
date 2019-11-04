@@ -7,7 +7,7 @@ local example =1
 ```
 
 ### define a function 
-<b>!!!All functions you want to use must define before where you write !!!</b>
+<b>!!! All functions you want to use must define before where you write !!!</b>
 
 ``` lua
 local function example_function()
@@ -22,7 +22,7 @@ end
 local var = add(1,2)
 ```
 
-### if
+### if 
 ``` lua
 local example = 1 
 
@@ -35,15 +35,12 @@ else
 end 
 ```
 
-### for
+### loops 
 ``` lua
 for i = 0, 10, 1 do
     print(i)
 end
-```
 
-### While
-``` lua
 while example >= 3 do
     print("it's still 3 or more")
 end
