@@ -1,6 +1,6 @@
 # character
 ## character lists
-all the characters are listed in the prefab file, here is some information about original characters in the game.According to the character name we can find the scripts in prefab file. (still lack some characters)
+All the characters are listed in the prefab file, here is some information about original characters in the game. According to the character name we can find the scripts in prefab file. (still lack some characters)
 
 wilson: The gentleman Scientist(most common one in the game)
 
