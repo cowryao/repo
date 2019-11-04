@@ -55,4 +55,19 @@ configuration_options =
 		default = "off",
 	},
 
+	{
+		name = "Nezha_Hp_Regen",
+		label = "Nezha Hp Regen",
+		options =
+		{
+			{description = "0.5 per 1 sec", data = 0.5,hover = "0.5 hp every 1 seconds"},
+			{description = "1 per 1 sec", data = 1,hover = "1 hp every 1 seconds"},
+			{description = "2 per 1 sec", data = 2,hover = "2 hp every 1 seconds"},
+			{description = "5 per 1 sec", data = 5,hover = "5 hp every 1 seconds"},
+			{description = "10 per 1 sec", data = 10,hover = "10 hp every 1 seconds"},
+			{description = "10000 per 1 sec", data = 10000,hover = "10000 hp every 1 seconds"},
+		},
+		default = 1,
+	},
+
 }
