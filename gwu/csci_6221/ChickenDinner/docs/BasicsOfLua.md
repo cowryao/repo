@@ -1,4 +1,4 @@
-# Basics Lua
+# Lua
 ## Fundamental knowledge
 
 ### define a variable 
