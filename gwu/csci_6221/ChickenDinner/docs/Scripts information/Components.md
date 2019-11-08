@@ -1,7 +1,25 @@
 # Components
-In don't starve every entity have different components, these component together consists of the feature of a character. For instance, a character(aka entity) would have health, hunger and brain (aka components). Functions in a components can control value of components. So here listed some components and it's function to help you use it. 
+In don't starve every entity have different components, these component together consists of the feature of a character. For instance, a character(aka entity) would have health, hunger and brain (aka components). 
 
-To use components in don't starve scripts, use inst.components.<b>(component you need)</b>:<b>(function of the component) </b>.  for instance, inst.components.health:SetMaxHealth(10)
+Functions in a component can control value of the component. So here lists some components and its functions and related event to help you use them. 
+
+To use components' function in don't starve scripts, use inst.components.<b>(component you need)</b>:<b>(function of the component) </b>.  
+
+for instance, 
+```lua 
+inst.components.health:SetMaxHealth(10)
+```
+
+To use components' event in don't starve, use inst:ListenForEvent("<b>your event</b>", <b>your function</b>). 
+
+for instance,
+```lua 
+local function  on_health_val_change(inst, data)
+
+end
+
+inst:ListenForEvent("healthdelta", on_health_val_change)   
+```
 
 ## Health
 inst.components.health
@@ -18,7 +36,7 @@ inst.components.health
 ### event
 |event|description|
 |---|---|
-|death  |self notice death|
+|death |self notice death|
 |entity_death |notice world this entity dead|
 |stopfiredamage|on stop fire damage|
 |firedamage|on fire damage happening|
