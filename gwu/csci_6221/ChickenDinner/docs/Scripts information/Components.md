@@ -4,9 +4,10 @@ In don't starve every entity have different components, these component together
 To use components in don't starve scripts, use inst.components.<b>(component you need)</b>:<b>(function of the component) </b>.  for instance, inst.components.health:SetMaxHealth(10)
 
 ## Health
+inst.components.health
 ### function
 |function|description|
-|--------|-----------|
+|---|---|
 |StartRegen(amount, period, interruptcurrentregen)  |start regenerate health|
 |StopRegen() |stop regenerate health|
 |SetMaxHealth(amount) | set max health |
@@ -16,24 +17,53 @@ To use components in don't starve scripts, use inst.components.<b>(component you
 |Kill()||
 ### event
 |event|description|
-|-----|-------|
+|---|---|
 |death  |self notice death|
 |entity_death |notice world this entity dead|
-|stopfiredamage||
-|firedamage||
-|startfiredamage||
+|stopfiredamage|on stop fire damage|
+|firedamage|on fire damage happening|
+|startfiredamage|on fire damage start|
 |respawn   | on re-spawn|
 |healthdelta   |when health is changing|
 
 ## Hunger
+inst.components.hunger
 ### function 
 |function|description|
-|-----|-------|
+|---|---|
 |IsStarving()   |judge if is starving, if is starving then begin hurt character|
 |Pause()  |pause hunger|
 |Resume()   |resume decline hunger value|
 |SetKillRate(rate)  |set hunger hurt rate, this will cut character health|
 |SetRate(rate)  |set hunger rate, this decide how hunger value decline|
 |SetMax(amount) | Set hunger max val|
+|SetPercent()| Set hunger value by percent|
+|GetPercent()| get currnet hunger percent|
 
+### event
+|event|description|
+|---|---|
+|hungerdelta | on hunger value change|
+|startstarving | on hunger value less than 0, and begin starving (hurt character)|
+|stopstarving |on hunger value more than 0, and stop starving (hurt character)|
+
+## Sanity
+inst.component.sanity
+### function
+|function|description|
+|---|---|
+|IsSane() | is character sane|
+|IsCrazy() |is character Crazy|
+|SetPercent(per)| set san value by percent|
+|SetMax(amount)| set max san value|
+|GetPenaltyPercent()| get penalty percent|
+|GetMaxSanity() |get max san value|
+|GetPercent(usepenalty)|get current san percent, consider penalty or not (usepenalty is bool value) |
+
+### event
+|event|description|
+|---|---|
+|sanitydelta| on san value changing|
+|goinsane| on character went crazy|
+|gosane| on character went sane|
 
