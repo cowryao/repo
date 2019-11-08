@@ -64,9 +64,10 @@ AddModCharacter("nezha")
 -- local testing_1= GetModConfigData("test_options_01")
 
 ---------------- test of spawn a creature----------
-local Test_Spawn_A_Creature= GetModConfigData("Test_Spawn_A_Creature")
+local Test_On= GetModConfigData("Test_On")
 
 local DEBUG_KEY = GLOBAL.assert(GLOBAL.KEY_P)
+local DEBUG_KEY_SKIP_Time = GLOBAL.assert(GLOBAL.KEY_O)
 
 local function SpawnCreature()
 	local player = GLOBAL.GetPlayer()
@@ -75,7 +76,9 @@ local function SpawnCreature()
 	creature.Transform:SetPosition( x, y, z )	
 end
 
-
+local function SkipTime()
+	GLOBAL.GetClock():NextPhase()
+end
 
 -----------Mod main method --------------------------
 local function AfterLoadingTheWorld(player)
@@ -92,9 +95,13 @@ local function AfterLoadingTheWorld(player)
 			end)()
 	end
 	-- SpawnCreature()
-	if Test_Spawn_A_Creature =="on" then
+	if Test_On =="on" then
 		GLOBAL.TheInput:AddKeyDownHandler(GLOBAL.KEY_P, SpawnCreature)
+		GLOBAL.TheInput:AddKeyDownHandler(GLOBAL.KEY_O, SkipTime)
+		
 	end
+
+	
 end
 
 	

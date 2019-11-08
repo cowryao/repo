@@ -45,8 +45,8 @@ configuration_options =
 	},
 	
 	{
-		name = "Test_Spawn_A_Creature",
-		label = "Spawn Creature Test",
+		name = "Test_On",
+		label = "In Test Mode",
 		options =	{
 						{description = "Off", data = "off"},
 						{description = "On", data = "on"},
