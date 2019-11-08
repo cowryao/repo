@@ -5,6 +5,8 @@ To use components in don't starve scripts, use inst.components.<b>(component you
 
 ## Health
 ### function
+|function|description|
+|--------|-----------|
 |StartRegen(amount, period, interruptcurrentregen)  |start regenerate health|
 |StopRegen() |stop regenerate health|
 |SetMaxHealth(amount) | set max health |
