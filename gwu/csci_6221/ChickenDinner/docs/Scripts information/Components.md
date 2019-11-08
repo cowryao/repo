@@ -13,19 +13,22 @@ To use components in don't starve scripts, use inst.components.<b>(component you
 |SetAbsorbAmount(amount) | set absorb amount(game crush when use this funciton)|
 |GetPercent()  |get currnet health percent|
 |GetMaxHealth() |get max health value|
-
-Kill()
+|Kill()||
 ### event
+|event|description|
+|-----|-------|
 |death  |self notice death|
 |entity_death |notice world this entity dead|
-|stopfiredamage|---|
-|firedamage|---|
-|startfiredamage|----|
+|stopfiredamage||
+|firedamage||
+|startfiredamage||
 |respawn   | on re-spawn|
 |healthdelta   |when health is changing|
 
 ## Hunger
 ### function 
+|function|description|
+|-----|-------|
 |IsStarving()   |judge if is starving, if is starving then begin hurt character|
 |Pause()  |pause hunger|
 |Resume()   |resume decline hunger value|
