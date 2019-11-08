@@ -32,14 +32,14 @@ local start_inv = {
 ------init--------------------------------------------------
 local function init_small_statue(inst)
 	-- set values 
-	local stomach_val=1
+	local stomach_val=200
 	local stomach_decline_val=1
-	local brain_val=1
+	local brain_val=150
 	local brain_decline_val=1
-	local heart_val=1
+	local heart_val=200
 	local heart_decline_val=1
-	local move_speed=1
-	local defence_speed=1
+	local move_speed= 8
+	local defence_val=1
 
 	--attack values
 	local attack_values=1
@@ -47,28 +47,45 @@ local function init_small_statue(inst)
 	--features
 
 
+	-----set character value and features
+
+	inst.components.health:SetMaxHealth(heart_val)
+	inst.components.hunger:SetMax(stomach_val)
+	inst.components.sanity:SetMax(brain_val)
+	inst.components.locomotor.walkspeed = move_speed
+	inst.components.locomotor.runspeed = move_speed
+
 end
 
 local function init_big_statue(inst)
-	local stomach_val=1
+	local stomach_val=200
 	local stomach_decline_val=1
-	local brain_val=1
+	local brain_val=150
 	local brain_decline_val=1
-	local heart_val=1
+	local heart_val=200
 	local heart_decline_val=1
-	local move_speed=1
-	local defence_speed=1
+	local move_speed= 20
+
+	local defence_val=1
 
 	--attack values
 	local attack_values=2
 
+
+	-----set character value and features
+	---values 
+	inst.components.health:SetMaxHealth(heart_val)
+	inst.components.hunger:SetMax(stomach_val)
+	inst.components.sanity:SetMax(brain_val)
+	inst.components.locomotor.walkspeed = move_speed
+	inst.components.locomotor.runspeed = move_speed
 end
 
 ---------------------------------------------------
 -----------features-----------------------------------
 --feature cheater
 local function set_cheat_feature(inst)
-	inst.MiniMapEntity:SetIcon( "nezha.tex" )
+	
 	
 end
 
@@ -98,12 +115,16 @@ local function on_full_moon_night(inst)
 	init_big_statue(inst)
 end
 
-local function on_heart_val_low(inst)
 
-end
-
-local function on_heart_val_enough(inst)
-
+local function on_heart_val_change(inst,data)
+	------judge heart is low or high
+	-- print("here")
+	local heart_val_of_character=inst.components.health:GetPercent()
+	if heart_val_of_character < 0.05  then
+		inst.components.health:StartRegen(TUNING.NEZHA_HP_Regen,1)
+	elseif heart_val_of_character > 0.2 then
+		inst.components.health:StopRegen()
+	end
 end
 
 local function on_brain_val_low(inst)
@@ -114,10 +135,22 @@ local function on_brain_val_enough(inst)
 
 end
 
-
+local function on_brain_val_change(inst)
+	local brain_val_of_character=1
+	if brain_val_of_character <10 then
+		on_brain_val_low(inst)
+	elseif brain_val_of_character >50 then
+		on_brain_val_enough(inst)
+	end
+end
 
 --main function of the character
 local function character_init(inst)
+	-- character common feature
+	init_big_statue(inst)
+	-- inst.components.health:StartRegen(TUNING.NEZHA_HP_Regen,1)
+	inst.MiniMapEntity:SetIcon( "nezha.tex" )
+
 	--set cheat feature
 	set_cheat_feature(inst)
 
@@ -127,25 +160,16 @@ local function character_init(inst)
 	-- I dont know which one is the full moon night event 
 	------ inst:ListenForEvent( "nighttime", function() on_full_moon_night(inst) end , GetWorld())
 	
-	local heart_val_of_character=1
-	--get heart value on it change
-	------ inst:ListenForEvent( "nighttime", function() on_full_moon_night(inst) end , GetWorld())
-	------judge heart is low or high
-	if heart_val_of_character <10 then
-		on_heart_val_low(inst)
-	elseif heart_val_of_character >50 then
-		on_heart_val_enough(inst)
-	end
+	inst:ListenForEvent("healthdelta", on_heart_val_change)
+	
+	-- inst:ListenForEvent( "healthdelta", function() on_heart_val_change(inst) end , GetWorld())
+	
 
-	local brain_val_of_character=1
+	
 	--get brain value on it change
 	------ inst:ListenForEvent( "nighttime", function() on_full_moon_night(inst) end , GetWorld())
 	------judge brain is low or high
-	if brain_val_of_character <10 then
-		on_brain_val_low(inst)
-	elseif brain_val_of_character >50 then
-		on_brain_val_enough(inst)
-	end
+	
 
 end
 

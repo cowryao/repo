@@ -5,7 +5,7 @@ local STRINGS = GLOBAL.STRINGS
 local ACTIONS = GLOBAL.ACTIONS
 local Action = GLOBAL.Action
 
-TUNING.SPIDEY_HP_Regen = GetModConfigData("NezhaHpRegen")
+TUNING.NEZHA_HP_Regen = GetModConfigData("Nezha_Hp_Regen")
 
 PrefabFiles = {
 	"nezha",
