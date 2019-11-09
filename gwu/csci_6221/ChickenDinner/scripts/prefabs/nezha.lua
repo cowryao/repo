@@ -27,66 +27,90 @@ local start_inv = {
 }
 
 
-
-
-
 --------------------------------------------------------------
 ------init--------------------------------------------------
 local function init_small_statue(inst)
+	inst.nezha_state ="small"
 	inst.AnimState:SetBuild("wolfgang_skinny")
 
 
 	-- set values 
 	local stomach_val=200
-	local stomach_decline_val=1
+	local stomach_decline_rate=1
 	local brain_val=150
-	local brain_decline_val=1
+	local brain_decline_rate=-0.05
 	local heart_val=200
-	local heart_decline_val=1
-	local move_speed= 8
+	local heart_decline_rate=1
+	local move_speed= 20 --8
 	local defence_val=1
 
 	--attack values
 	local attack_values=1
 
-	--features
-
 
 	-----set character value and features
-
+	local current_health_percent = inst.components.health:GetPercent()
 	inst.components.health:SetMaxHealth(heart_val)
+	inst.components.health:SetPercent(current_health_percent,"")
+
+	local current_hunger_percent = inst.components.hunger:GetPercent()
 	inst.components.hunger:SetMax(stomach_val)
+	inst.components.hunger:SetPercent(current_hunger_percent)
+
+	local current_sanity_percent = inst.components.sanity:GetPercent()
 	inst.components.sanity:SetMax(brain_val)
+	inst.components.sanity:SetPercent(current_sanity_percent)
+
 	inst.components.locomotor.walkspeed = move_speed
 	inst.components.locomotor.runspeed = move_speed
+
+
+	-- feature 
+	-- print(inst.components.sanity.rate)
+
+	inst.components.sanity.rate =brain_decline_rate
+	inst.components.combat.damagemultiplier =attack_values
 
 end
 
 local function init_big_statue(inst)
+	inst.nezha_state ="big"
 	inst.AnimState:SetBuild("wolfgang_mighty")
 
-
 	local stomach_val=200
-	local stomach_decline_val=1
+	local stomach_decline_rate=1
 	local brain_val=150
-	local brain_decline_val=1
+	local brain_decline_rate=-0.15
 	local heart_val=200
-	local heart_decline_val=1
+	local heart_decline_rate=1
 	local move_speed= 20
 
 	local defence_val=1
 
 	--attack values
-	local attack_values=2
+	local attack_values=3
 
 
 	-----set character value and features
 	---values 
+	local current_health_percent = inst.components.health:GetPercent()
 	inst.components.health:SetMaxHealth(heart_val)
+	inst.components.health:SetPercent(current_health_percent,"")
+
+	local current_hunger_percent = inst.components.hunger:GetPercent()
 	inst.components.hunger:SetMax(stomach_val)
+	inst.components.hunger:SetPercent(current_hunger_percent)
+
+	local current_sanity_percent = inst.components.sanity:GetPercent()
 	inst.components.sanity:SetMax(brain_val)
+	inst.components.sanity:SetPercent(current_sanity_percent)
 	inst.components.locomotor.walkspeed = move_speed
 	inst.components.locomotor.runspeed = move_speed
+
+	-- features 
+	-- print(inst.components.sanity.rate)
+	inst.components.sanity.rate =brain_decline_rate
+	inst.components.combat.damagemultiplier =attack_values
 end
 
 ---------------------------------------------------
@@ -99,66 +123,52 @@ end
 
 --feature avoid fire
 local function set_not_hurt_by_fire(inst)
-
+	inst.components.health.fire_damage_scale = 0
 end
 
---feature tough
-local function set_tough_body(inst)
-	
-end
-
---feature of the big one   fool
-local function set_fool_brain(inst)
-
-end
-
---feature of the big one : attacking
-local function set_attack_feature()
-
-end
 
 -----------------------------------------------
 -- events-----------------------------------
-local function on_full_moon_night(inst)
-	init_big_statue(inst)
-end
 
-
+-- feature  tough
 local function on_heart_val_change(inst,data)
+	if inst.recovered_once then
+		print(inst.recovered_once)
+		return
+	end
 	------judge heart is low or high
 	-- print("here")
 	local heart_val_of_character=inst.components.health:GetPercent()
-	if heart_val_of_character < 0.05  then
+	if heart_val_of_character < 0.2  then
 		inst.components.health:StartRegen(TUNING.NEZHA_HP_Regen,1)
-	elseif heart_val_of_character > 0.2 then
+		inst.recovered_once=true
+	elseif heart_val_of_character > 0.5 then
 		inst.components.health:StopRegen()
 	end
 end
 
-local function on_brain_val_low(inst)
-
-end
-
-local function on_brain_val_enough(inst)
-
+-- translate
+local function on_full_moon_night(inst)
+	init_big_statue(inst)
 end
 
 local function on_brain_val_change(inst)
-	local brain_val_of_character=1
-	if brain_val_of_character <10 then
-		on_brain_val_low(inst)
-	elseif brain_val_of_character >50 then
-		on_brain_val_enough(inst)
+	local brain_val_of_character=inst.components.sanity:GetPercent(true)
+	if brain_val_of_character <0.6 and inst.nezha_state=="small" then
+		init_big_statue(inst)
+	elseif brain_val_of_character >0.6 and inst.nezha_state=="big" then
+		init_small_statue(inst)
 	end
 end
 
 --main function of the character
 local function character_init(inst)
-	--TEST
+	--global value
+	inst.nezha_state = "small"
+	inst.recovered_once = false
 
 	-- character common feature
 	init_small_statue(inst)
-	-- inst.components.health:StartRegen(TUNING.NEZHA_HP_Regen,1)
 	inst.MiniMapEntity:SetIcon( "nezha.tex" )
 
 	--set cheat feature
@@ -172,7 +182,7 @@ local function character_init(inst)
 	
 	inst:ListenForEvent("healthdelta", on_heart_val_change)
 	
-	-- inst:ListenForEvent( "healthdelta", function() on_heart_val_change(inst) end , GetWorld())
+	inst:ListenForEvent( "sanitydelta", on_brain_val_change)
 	
 
 	
@@ -180,6 +190,8 @@ local function character_init(inst)
 	------ inst:ListenForEvent( "nighttime", function() on_full_moon_night(inst) end , GetWorld())
 	------judge brain is low or high
 	
+	--test
+	-- inst.components.health:StartRegen(TUNING.NEZHA_HP_Regen,1)
 
 end
 
