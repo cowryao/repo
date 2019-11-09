@@ -7,6 +7,8 @@ local assets =
     Asset("SCRIPT", "scripts/prefabs/player_common.lua"),
 
     Asset( "ANIM", "anim/nezha.zip" ),
+    Asset( "ANIM", "anim/wolfgang_skinny.zip" ),
+    Asset( "ANIM", "anim/wolfgang_mighty.zip" ),
 	
 	Asset( "IMAGE", "images/hud/nezhatab.tex" ),
     Asset( "ATLAS", "images/hud/nezhatab.xml" ),
@@ -31,6 +33,9 @@ local start_inv = {
 --------------------------------------------------------------
 ------init--------------------------------------------------
 local function init_small_statue(inst)
+	inst.AnimState:SetBuild("wolfgang_skinny")
+
+
 	-- set values 
 	local stomach_val=200
 	local stomach_decline_val=1
@@ -58,6 +63,9 @@ local function init_small_statue(inst)
 end
 
 local function init_big_statue(inst)
+	inst.AnimState:SetBuild("wolfgang_mighty")
+
+
 	local stomach_val=200
 	local stomach_decline_val=1
 	local brain_val=150
@@ -96,7 +104,7 @@ end
 
 --feature tough
 local function set_tough_body(inst)
-
+	
 end
 
 --feature of the big one   fool
@@ -146,8 +154,10 @@ end
 
 --main function of the character
 local function character_init(inst)
+	--TEST
+
 	-- character common feature
-	init_big_statue(inst)
+	init_small_statue(inst)
 	-- inst.components.health:StartRegen(TUNING.NEZHA_HP_Regen,1)
 	inst.MiniMapEntity:SetIcon( "nezha.tex" )
 
