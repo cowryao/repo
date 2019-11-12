@@ -1,0 +1,46 @@
+<Atlas>
+	<Texture filename="nezha.tex" />
+    <Elements>
+        <Element name="alchmy_fur.tex" u1="0" u2="0.125" v1="0.875" v2="1" />
+        <Element name="armor_pill.tex" u1="0.125" u2="0.25" v1="0.875" v2="1" />
+        <Element name="bananafan.tex" u1="0.25" u2="0.375" v1="0.875" v2="1" />
+        <Element name="bigpeach.tex" u1="0.375" u2="0.5" v1="0.875" v2="1" />
+        <Element name="bloodthirsty_pill.tex" u1="0.5" u2="0.625" v1="0.875" v2="1" />
+        <Element name="cassock.tex" u1="0.625" u2="0.75" v1="0.875" v2="1" />
+        <Element name="cold_resistant_pill.tex" u1="0.75" u2="0.875" v1="0.875" v2="1" />
+        <Element name="condensed_pill.tex" u1="0" u2="0.125" v1="0.75" v2="0.875" />
+        <Element name="detoxic_pill.tex" u1="0.125" u2="0.25" v1="0.75" v2="0.875" />
+        <Element name="dust_resistant_pill.tex" u1="0.25" u2="0.375" v1="0.75" v2="0.875" />
+        <Element name="fly_pill.tex" u1="0.375" u2="0.5" v1="0.75" v2="0.875" />
+        <Element name="golden_armor_mk.tex" u1="0.5" u2="0.625" v1="0.75" v2="0.875" />
+        <Element name="golden_hat_mk.tex" u1="0.625" u2="0.75" v1="0.75" v2="0.875" />
+        <Element name="gourd.tex" u1="0.75" u2="0.875" v1="0.75" v2="0.875" />
+        <Element name="gourd_cooked.tex" u1="0" u2="0.125" v1="0.625" v2="0.75" />
+        <Element name="gourd_omelet.tex" u1="0.125" u2="0.25" v1="0.625" v2="0.75" />
+        <Element name="gourd_soup.tex" u1="0.25" u2="0.375" v1="0.625" v2="0.75" />
+        <Element name="heat_resistant_pill.tex" u1="0.375" u2="0.5" v1="0.625" v2="0.75" />
+        <Element name="honey_pie.tex" u1="0.5" u2="0.625" v1="0.625" v2="0.75" />
+        <Element name="kam_Lan_cassock.tex" u1="0.625" u2="0.75" v1="0.625" v2="0.75" />
+        <Element name="laozi_sp.tex" u1="0.75" u2="0.875" v1="0.625" v2="0.75" />
+        <Element name="lotus_flower.tex" u1="0" u2="0.125" v1="0.5" v2="0.625" />
+        <Element name="lotus_flower_cooked.tex" u1="0.125" u2="0.25" v1="0.5" v2="0.625" />
+        <Element name="mk_battle_flag_item.tex" u1="0.25" u2="0.375" v1="0.5" v2="0.625" />
+        <Element name="mk_hualing.tex" u1="0.375" u2="0.5" v1="0.5" v2="0.625" />
+        <Element name="mk_huoyuan.tex" u1="0.5" u2="0.625" v1="0.5" v2="0.625" />
+        <Element name="mk_jgb.tex" u1="0.625" u2="0.75" v1="0.5" v2="0.625" />
+        <Element name="mk_longpi.tex" u1="0.75" u2="0.875" v1="0.5" v2="0.625" />
+        <Element name="nz_damask.tex" u1="0" u2="0.125" v1="0.375" v2="0.5" />
+        <Element name="nz_lance.tex" u1="0.125" u2="0.25" v1="0.375" v2="0.5" />
+        <Element name="nz_ring.tex" u1="0.25" u2="0.375" v1="0.375" v2="0.5" />
+        <Element name="peach.tex" u1="0.375" u2="0.5" v1="0.375" v2="0.5" />
+        <Element name="peach_banquet.tex" u1="0.5" u2="0.625" v1="0.375" v2="0.5" />
+        <Element name="peach_cooked.tex" u1="0.625" u2="0.75" v1="0.375" v2="0.5" />
+        <Element name="peach_wine.tex" u1="0.75" u2="0.875" v1="0.375" v2="0.5" />
+        <Element name="pill_bottle_gourd.tex" u1="0" u2="0.125" v1="0.25" v2="0.375" />
+        <Element name="thorns_pill.tex" u1="0.125" u2="0.25" v1="0.25" v2="0.375" />
+        <Element name="vegetarian_food.tex" u1="0.25" u2="0.375" v1="0.25" v2="0.375" />
+        <Element name="wine_bottle_gourd.tex" u1="0.375" u2="0.5" v1="0.25" v2="0.375" />
+        <Element name="xzhat_mk.tex" u1="0.5" u2="0.625" v1="0.25" v2="0.375" />
+        <Element name="gourd_seeds.tex" u1="0.625" u2="0.7285156" v1="0.2617188" v2="0.375" />
+    </Elements>
+</Atlas>

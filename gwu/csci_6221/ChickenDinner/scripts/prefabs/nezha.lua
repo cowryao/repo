@@ -9,6 +9,9 @@ local assets =
     Asset( "ANIM", "anim/nezha.zip" ),
     Asset( "ANIM", "anim/wolfgang_skinny.zip" ),
     Asset( "ANIM", "anim/wolfgang_mighty.zip" ),
+	Asset( "ANIM", "anim/neza.zip" ),
+    Asset( "ANIM", "anim/nz36.zip" ),
+	
 	
 	Asset( "IMAGE", "images/hud/nezhatab.tex" ),
     Asset( "ATLAS", "images/hud/nezhatab.xml" ),
@@ -23,15 +26,20 @@ local prefabs = {}
 local start_inv = {
 	"spidereggsack",
 	"spidereggsack",
-
+	"nz_lance",
+	"nz_wheel",
 }
 
 
 --------------------------------------------------------------
 ------init--------------------------------------------------
 local function init_small_statue(inst)
+	inst.AnimState:SetBuild('neza')
+	inst.AnimState:OverrideSymbol('nz_head','nz36','nz_head')
+
+	
 	inst.nezha_state ="small"
-	inst.AnimState:SetBuild("wolfgang_skinny")
+	-- inst.AnimState:SetBuild("wolfgang_skinny")
 
 
 	-- set values 
@@ -41,7 +49,7 @@ local function init_small_statue(inst)
 	local brain_decline_rate=-0.05
 	local heart_val=200
 	local heart_decline_rate=1
-	local move_speed= 20 --8
+	local move_speed= 8 --8
 	local defence_val=1
 
 	--attack values
@@ -168,8 +176,10 @@ local function character_init(inst)
 	inst.recovered_once = false
 
 	-- character common feature
-	init_small_statue(inst)
+	inst:AddTag("neza")
 	inst.MiniMapEntity:SetIcon( "nezha.tex" )
+
+	init_small_statue(inst)
 
 	--set cheat feature
 	set_cheat_feature(inst)
