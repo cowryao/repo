@@ -34,10 +34,10 @@ local start_inv = {
 ------init--------------------------------------------------
 local function init_small_statue(inst)
 
-	inst.AnimState:SetBuild('nezha')
+	-- inst.AnimState:SetBuild('nezha')
 
-	-- inst.AnimState:SetBuild('neza')
-	-- inst.AnimState:OverrideSymbol('nz_head','nz36','nz_head')
+	inst.AnimState:SetBuild('neza')
+	inst.AnimState:OverrideSymbol('nz_head','nz36','nz_head')
 
 	
 	inst.nezha_state ="small"
@@ -85,9 +85,9 @@ end
 
 local function init_big_statue(inst)
 	inst.nezha_state ="big"
-	-- inst.AnimState:SetBuild("wolfgang_mighty")
-	inst.AnimState:SetBuild('neza')
-	inst.AnimState:OverrideSymbol('nz_head','nz36','nz_head')
+	inst.AnimState:SetBuild("wolfgang_mighty")
+	-- inst.AnimState:SetBuild('neza')
+	-- inst.AnimState:OverrideSymbol('nz_head','nz36','nz_head')
 
 	local stomach_val=200
 	local stomach_decline_rate=1
