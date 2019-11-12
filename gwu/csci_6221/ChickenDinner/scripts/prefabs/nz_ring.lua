@@ -2,36 +2,36 @@
 local assets=
 {
     Asset("ANIM", "anim/nz_ring.zip"),
+    Asset("ATLAS", "images/inventoryimages/nz_ring.xml")
 }
 
-    
-local prefabs =
-{
-}
 
 local function OnEquip(inst, owner) 
     owner.AnimState:OverrideSymbol("swap_object", "nz_ring", "swap_item")
     owner.AnimState:Show("ARM_carry") 
     owner.AnimState:Hide("ARM_normal")
-end
 
-local function OnHitOwner(inst)
-    inst.components.floatable:SetAnimationFromPosition()
-    --inst.components.rechargeable:StartRecharging()
-    --inst:RemoveComponent('projectile')
-    --inst:RemoveTag("projectile")
-    --inst:RemoveTag('thrown')
+    local current_sanity_percent = owner.components.sanity:GetPercent()
+	owner.components.sanity:SetMax(180)
+	owner.components.sanity:SetPercent(current_sanity_percent)
 end
 
 local function OnUnequip(inst, owner) 
     owner.AnimState:Hide("ARM_carry") 
     owner.AnimState:Show("ARM_normal") 
+
+    local current_sanity_percent = owner.components.sanity:GetPercent()
+	owner.components.sanity:SetMax(150)
+	owner.components.sanity:SetPercent(current_sanity_percent)
+end
+
+local function OnDropped(inst)
+    inst.AnimState:PlayAnimation("idle")
 end
 
 local function OnThrown(inst, owner, target)
     if target ~= owner then
         owner.SoundEmitter:PlaySound("dontstarve/wilson/boomerang_throw")
-        inst:RemoveTag('return')
     end
     inst.AnimState:PlayAnimation("flying", true)
 end
@@ -44,11 +44,6 @@ local function OnCaught(inst, catcher)
             else
                 catcher.components.inventory:GiveItem(inst)
             end
-            --inst.components.rechargeable:StartRecharging()
-            --inst:RemoveComponent('projectile')
-            --inst:RemoveTag('projectile')
-            --inst:RemoveTag('thrown')
-            inst:RemoveTag('return')
             catcher:PushEvent("catch")
         end
     end
@@ -58,13 +53,12 @@ local function ReturnToOwner(inst, owner)
     if owner then
         owner.SoundEmitter:PlaySound("dontstarve/wilson/boomerang_return")
         inst.components.projectile:Throw(owner, owner)
-        inst:AddTag('return')
     end
 end
 
 local function OnHit(inst, owner, target)
     if owner == target then
-        OnHitOwner(inst)
+        OnDropped(inst)
     else
         ReturnToOwner(inst, owner)
     end
@@ -74,104 +68,72 @@ local function OnHit(inst, owner, target)
         follower:FollowSymbol(target.GUID, target.components.combat.hiteffectsymbol, 0, 0, 0 )
         impactfx:FacePoint(inst.Transform:GetWorldPosition())
     end
-    --强制硬直
-    if target and target.sg and not target:HasTag('player') then
-        if not target.components.health:IsDead() then
-            target.sg:GoToState('hit')
-        end
-    end
+
 end
 
 
 local function fn(Sim)
+    print("creatring ring!!!!")
     local inst = CreateEntity()
-    local trans = inst .entity:AddTransform()
-    local anim = inst.entity:AddAnimState()
+    inst.entity:AddTransform()
+    inst.entity:AddAnimState()
     MakeInventoryPhysics(inst)
     RemovePhysicsColliders(inst)
 
-    inst:AddTag('irreplaceable')
+    
+    inst.AnimState:SetBank("boomerang")
+    inst.AnimState:SetBuild("nz_ring")
+    inst.AnimState:PlayAnimation("idle")
+    inst.AnimState:SetRayTestOnBB(true)
 
-    inst.entity:AddMiniMapEntity()
-    inst.MiniMapEntity:SetIcon("nz_ring.tex")
-    
-    anim:SetBank("nz_ring")
-    anim:SetBuild("nz_ring")
-    anim:PlayAnimation("idle")
-    anim:SetRayTestOnBB(true)
-    
-    if rawget(_G, 'MakeInventoryFloatable') then
-        MakeInventoryFloatable(inst, 'idle_water', 'idle')
-    end
-    
-    --inst:AddTag("projectile")
-    --inst:AddTag("thrown")
-    inst:AddTag('irreplaceable')
-    inst:AddTag("sharp")
-    inst:AddTag("pointy")
-    --inst:AddTag("rechargeable")
+    inst:AddTag("thrown")
+
+    inst:AddTag("irreplaceable")
+    -- inst:AddTag("sharp")
+    -- inst:AddTag("pointy")
     
     inst:AddComponent("weapon")
-    inst.components.weapon:SetDamage(233-200-30-3)
-    inst.components.weapon.modes = 
-    {
-        RANGE = {damage = 51, ranged = true, attackrange = TUNING.BOOMERANG_DISTANCE, hitrange = TUNING.BOOMERANG_DISTANCE + 2},--远程伤害
-        NORMAL ={damage = 17, ranged = false,attackrange = -0.3, hitrange = 1} ,--近战距离, 近战伤害
-        RETURN = {damage = 51, ranged = true, attackrange = TUNING.BOOMERANG_DISTANCE, hitrange = TUNING.BOOMERANG_DISTANCE + 2},
-    }
-    inst.components.weapon.variedmodefn = function(weapon)
-        if not weapon.components.projectile then
-            return weapon.components.weapon.modes.NORMAL
-        --[[
-        elseif weapon.components.projectile.target == GetPlayer() then
-            return weapon.components.weapon.modes.RETURN
-        --]]
-        elseif weapon:HasTag('return') then
-            return weapon.components.weapon.modes.RETURN 
-        else
-            --print(weapon.components.projectile.target)
-            return weapon.components.weapon.modes.RANGE
-        end
-    end
+    inst.components.weapon:SetDamage(10)
+    inst.components.weapon:SetRange(TUNING.BOOMERANG_DISTANCE, TUNING.BOOMERANG_DISTANCE+2)
     -------
+    inst:AddTag("sharp")
+
+    inst:AddComponent("tool")
+    inst.components.tool:SetAction(ACTIONS.MINE)
 
     inst:AddComponent("inspectable")
-    
-    inst.SetProjectile = function()
+
+    inst:AddTag("projectile")
     inst:AddComponent("projectile")
-    inst:AddTag('projectile')
-    inst:AddTag('thrown')
-    inst.components.projectile:SetSpeed(15) --飞行速度
+    inst.components.projectile:SetSpeed(10)
     inst.components.projectile:SetCanCatch(true)
     inst.components.projectile:SetOnThrownFn(OnThrown)
     inst.components.projectile:SetOnHitFn(OnHit)
     inst.components.projectile:SetOnMissFn(ReturnToOwner)
     inst.components.projectile:SetOnCaughtFn(OnCaught)
-    inst.components.projectile:SetLaunchOffset(Vector3(0, 0.2, 0))
-    end
 
-    inst:SetProjectile()
-
-    --inst:AddComponent("rechargeable")
-    --inst.components.rechargeable:SetRechargeTime(5)
+    local hit_everyone = inst.components.projectile.Hit
+	function inst.components.projectile:Hit(target)
+		if target == self.owner and target.components.catcher then
+			target:PushEvent("catch", {projectile = self.inst}) 
+			self.inst:PushEvent("caught", {catcher = target})
+			self:Catch(target)
+			target.components.catcher:StopWatching(self.inst)
+		else
+			hit_everyone(self, target)
+		end
+	end
     
     inst:AddComponent("inventoryitem")
-    inst.components.inventoryitem.atlasname = "images/monkey_king_item.xml"
-    
+    inst.components.inventoryitem.atlasname = "images/inventoryimages/nz_ring.xml"
+    inst.components.inventoryitem:SetOnDroppedFn(OnDropped)
+
     inst:AddComponent("equippable")
     inst.components.equippable:SetOnEquip(OnEquip)
     inst.components.equippable:SetOnUnequip(OnUnequip)
 
-    --[[
-    inst:ListenForEvent('rechargechange',function()
-        if inst.components.rechargeable:GetPercent() >= 1 then
-            inst:SetProjectile()
-        end
-    end)
-    --]]
-    --懒得写保存函数了
-    
+
     return inst
 end
 
-return Prefab("nz_ring", fn, assets,prefabs)
+return Prefab("nz_ring", fn, assets)

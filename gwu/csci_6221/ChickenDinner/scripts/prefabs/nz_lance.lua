@@ -7,10 +7,6 @@ local assets =
 }
 
 
-local function onfinished(inst)
-    inst:Remove()
-end
-
 local function onequip(inst, owner)
 	owner.AnimState:OverrideSymbol("swap_object", "nz_lance", "swap_object")
 	owner.AnimState:Show("ARM_carry")

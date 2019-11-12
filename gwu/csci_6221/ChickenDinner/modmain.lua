@@ -9,6 +9,8 @@ TUNING.NEZHA_HP_Regen = GetModConfigData("Nezha_Hp_Regen")
 
 STRINGS.NAMES.NZ_LANCE = "huo jian qiang"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.NZ_LANCE = "Oops."
+STRINGS.NAMES.NZ_RING = "qian kun quan"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.NZ_LANCE = "WUUUU."
 
 -- STRINGS.NAMES.KATANAS = "Spiderpool's Katanas"
 -- STRINGS.CHARACTERS.GENERIC.DESCRIBE.KATANAS = "a set of sharpened swords."
@@ -17,9 +19,9 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.NZ_LANCE = "Oops."
 PrefabFiles = {
 	"nezha",
 	"nz_lance",
-	"nz_wheel"
-	-- "huojianqiang",
-	-- "fenghuolun",
+	-- "nz_wheel",
+	"nz_ring",
+
 }
 
 Assets = {
@@ -63,13 +65,14 @@ table.insert(GLOBAL.CHARACTER_GENDERS.MALE, "Nezha")
 
 AddMinimapAtlas("images/map_icons/nezha.xml")
 AddModCharacter("nezha")
-AddPrefabPostInit('nz_lance')
-AddPrefabPostInit('nz_wheel')
--- AddPrefabPostInit('katanas')
--- AddPrefabPostInit('silk')
+AddPrefabPostInit("nz_lance")
+-- AddPrefabPostInit('nz_wheel')
+AddPrefabPostInit("nz_ring")
+
+
 AddSimPostInit(nz_lance)
-AddSimPostInit(nz_wheel)
--- AddSimPostInit(silk)
+-- AddSimPostInit(nz_wheel)
+AddSimPostInit(nz_ring)
 
 -- local testing_1= GetModConfigData("test_options_01")
 

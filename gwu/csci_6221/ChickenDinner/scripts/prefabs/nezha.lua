@@ -7,8 +7,6 @@ local assets =
     Asset("SCRIPT", "scripts/prefabs/player_common.lua"),
 
     Asset( "ANIM", "anim/nezha.zip" ),
-    Asset( "ANIM", "anim/wolfgang_skinny.zip" ),
-    Asset( "ANIM", "anim/wolfgang_mighty.zip" ),
 	Asset( "ANIM", "anim/neza.zip" ),
     Asset( "ANIM", "anim/nz36.zip" ),
 	
@@ -27,7 +25,8 @@ local start_inv = {
 	"spidereggsack",
 	"spidereggsack",
 	"nz_lance",
-	"nz_wheel",
+	"nz_ring"
+	-- "nz_wheel",
 }
 
 
