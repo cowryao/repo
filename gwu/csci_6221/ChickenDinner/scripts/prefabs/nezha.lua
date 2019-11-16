@@ -25,8 +25,8 @@ local start_inv = {
 	"spidereggsack",
 	"spidereggsack",
 	"nz_lance",
-	"nz_ring"
-	-- "nz_wheel",
+	"nz_ring",
+	"nz_wheel",
 }
 
 
@@ -35,7 +35,6 @@ local start_inv = {
 local function init_small_statue(inst)
 
 	inst.AnimState:SetBuild('nezha')
-
 	-- inst.AnimState:SetBuild('neza')
 	-- inst.AnimState:OverrideSymbol('nz_head','nz36','nz_head')
 
@@ -196,7 +195,7 @@ local function character_init(inst)
 	
 	inst:ListenForEvent("healthdelta", on_heart_val_change)
 	
-	inst:ListenForEvent( "sanitydelta", on_brain_val_change)
+	inst:ListenForEvent("sanitydelta", on_brain_val_change)
 	
 
 	

@@ -11,7 +11,8 @@ STRINGS.NAMES.NZ_LANCE = "huo jian qiang"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.NZ_LANCE = "Oops."
 STRINGS.NAMES.NZ_RING = "qian kun quan"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.NZ_LANCE = "WUUUU."
-
+STRINGS.NAMES.NZ_WHEEL = "feng huo lun"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.NZ_WHEEL = "Hii Ha."
 -- STRINGS.NAMES.KATANAS = "Spiderpool's Katanas"
 -- STRINGS.CHARACTERS.GENERIC.DESCRIBE.KATANAS = "a set of sharpened swords."
 
@@ -19,7 +20,7 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.NZ_LANCE = "WUUUU."
 PrefabFiles = {
 	"nezha",
 	"nz_lance",
-	-- "nz_wheel",
+	"nz_wheel",
 	"nz_ring",
 
 }
@@ -65,13 +66,14 @@ table.insert(GLOBAL.CHARACTER_GENDERS.MALE, "Nezha")
 
 AddMinimapAtlas("images/map_icons/nezha.xml")
 AddModCharacter("nezha")
+
 AddPrefabPostInit("nz_lance")
--- AddPrefabPostInit('nz_wheel')
+AddPrefabPostInit('nz_wheel')
 AddPrefabPostInit("nz_ring")
 
 
 AddSimPostInit(nz_lance)
--- AddSimPostInit(nz_wheel)
+AddSimPostInit(nz_wheel)
 AddSimPostInit(nz_ring)
 
 -- local testing_1= GetModConfigData("test_options_01")
