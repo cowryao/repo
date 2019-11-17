@@ -2,18 +2,18 @@ local MakePlayerCharacter = require "prefabs/player_common"
 
 -- according to the assets, we should successfully load the character to our game
 -- at least I think so
-local assets = 
+local assets =
 {
     Asset("SCRIPT", "scripts/prefabs/player_common.lua"),
 
     Asset( "ANIM", "anim/nezha.zip" ),
 	Asset( "ANIM", "anim/neza.zip" ),
     Asset( "ANIM", "anim/nz36.zip" ),
-	
-	
+
+
 	Asset( "IMAGE", "images/hud/nezhatab.tex" ),
     Asset( "ATLAS", "images/hud/nezhatab.xml" ),
-	
+
 	Asset("IMAGE", "images/inventoryimages/silker.tex"),
 	Asset("ATLAS", "images/inventoryimages/silker.xml"),
 }
@@ -38,23 +38,23 @@ local function init_small_statue(inst)
 	-- inst.AnimState:SetBuild('neza')
 	-- inst.AnimState:OverrideSymbol('nz_head','nz36','nz_head')
 
-	
+
 	inst.nezha_state ="small"
 	-- inst.AnimState:SetBuild("wolfgang_skinny")
 
 
-	-- set values 
-	local stomach_val=200
-	local stomach_decline_rate=1
-	local brain_val=150
-	local brain_decline_rate=-0.05
-	local heart_val=200
-	local heart_decline_rate=1
-	local move_speed= 8 --8
-	local defence_val=1
+	-- set values
+	local stomach_val=TUNING.NEZHA_Small_Stomach_Val
+	local stomach_decline_rate=TUNING.NEZHA_Small_Stomach_Decline_Rate
+	local brain_val=TUNING.NEZHA_Small_Brain_Val
+	local brain_decline_rate=-1*TUNING.NEZHA_Small_Brain_Decline_Rate
+	local heart_val=TUNING.NEZHA_Small_Heart_Val
+	local heart_decline_rate=TUNING.NEZHA_Small_Heart_Decline_Rate
+	local move_speed=TUNING.NEZHA_Small_Move_Speed --8
+	local defence_val=TUNING.NEZHA_Small_Defence_Val
 
 	--attack values
-	local attack_values=1
+	local attack_values=TUNING.NEZHA_Small_Attack_Val
 
 
 	-----set character value and features
@@ -74,7 +74,7 @@ local function init_small_statue(inst)
 	inst.components.locomotor.runspeed = move_speed
 
 
-	-- feature 
+	-- feature
 	-- print(inst.components.sanity.rate)
 
 	inst.components.sanity.rate =brain_decline_rate
@@ -88,22 +88,22 @@ local function init_big_statue(inst)
 	inst.AnimState:SetBuild('neza')
 	inst.AnimState:OverrideSymbol('nz_head','nz36','nz_head')
 
-	local stomach_val=200
-	local stomach_decline_rate=1
-	local brain_val=150
-	local brain_decline_rate=-0.15
-	local heart_val=200
-	local heart_decline_rate=1
-	local move_speed= 20
+	local stomach_val=TUNING.NEZHA_Big_Stomach_Val
+	local stomach_decline_rate=TUNING.NEZHA_Big_Stomach_Decline_Rate
+	local brain_val=TUNING.NEZHA_Big_Brain_Val
+	local brain_decline_rate=-1*TUNING.NEZHA_Big_Brain_Decline_Rate
+	local heart_val=TUNING.NEZHA_Big_Heart_Val
+	local heart_decline_rate=TUNING.NEZHA_Big_Heart_Decline_Rate
+	local move_speed=TUNING.NEZHA_Big_Move_Speed
 
-	local defence_val=1
+	local defence_val=TUNING.NEZHA_Big_Defence_Val
 
 	--attack values
-	local attack_values=3
+	local attack_values=TUNING.NEZHA_Big_Attack_Val
 
 
 	-----set character value and features
-	---values 
+	---values
 	local current_health_percent = inst.components.health:GetPercent()
 	inst.components.health:SetMaxHealth(heart_val)
 	inst.components.health:SetPercent(current_health_percent,"")
@@ -118,7 +118,7 @@ local function init_big_statue(inst)
 	inst.components.locomotor.walkspeed = move_speed
 	inst.components.locomotor.runspeed = move_speed
 
-	-- features 
+	-- features
 	-- print(inst.components.sanity.rate)
 	inst.components.sanity.rate =brain_decline_rate
 	inst.components.combat.damagemultiplier =attack_values
@@ -128,8 +128,8 @@ end
 -----------features-----------------------------------
 --feature cheater
 local function set_cheat_feature(inst)
-	
-	
+
+
 end
 
 --feature avoid fire
@@ -190,19 +190,19 @@ local function character_init(inst)
 	set_not_hurt_by_fire(inst)
 
 	-- events
-	-- I dont know which one is the full moon night event 
+	-- I dont know which one is the full moon night event
 	------ inst:ListenForEvent( "nighttime", function() on_full_moon_night(inst) end , GetWorld())
-	
-	inst:ListenForEvent("healthdelta", on_heart_val_change)
-	
-	inst:ListenForEvent("sanitydelta", on_brain_val_change)
-	
 
-	
+	inst:ListenForEvent("healthdelta", on_heart_val_change)
+
+	inst:ListenForEvent("sanitydelta", on_brain_val_change)
+
+
+
 	--get brain value on it change
 	------ inst:ListenForEvent( "nighttime", function() on_full_moon_night(inst) end , GetWorld())
 	------judge brain is low or high
-	
+
 	--test
 	-- inst.components.health:StartRegen(TUNING.NEZHA_HP_Regen,1)
 
@@ -243,54 +243,54 @@ return MakePlayerCharacter("nezha", prefabs, assets, character_init, start_inv)
 -- 	-- STRINGS.TABS.NEZHA = "Nezha"
 -- 	local nezhatab = {str = "NEZHA", sort=999, icon = "nezhatab.tex", icon_atlas = "images/hud/nezhatab.xml"}
 -- 	inst.components.builder:AddRecipeTab(nezhatab)
-	
+
 -- 	local s01Recipe = Recipe("katanas", {Ingredient("goldnugget", 2),Ingredient("flint", 10),Ingredient("cutstone", 10)}, nezhatab, {SCIENCE = 0, MAGIC = 0, ANCIENT = 0})
 -- 	s01Recipe.atlas = "images/inventoryimages/katanas.xml"
-	
+
 -- 	local s02Recipe = Recipe("silk", {Ingredient("butterflywings", 1)}, nezhatab, {SCIENCE = 0, MAGIC = 0, ANCIENT = 0}, nil, nil, nil, 10 )
 -- 	s02Recipe.atlas = "images/inventoryimages/silker.xml"
-	
+
 -- 	--****************************************************
-	
-	
-	
+
+
+
 -- 	inst.soundsname = "nezha"
-	
+
 -- 	inst:AddTag("spiderwhisperer")
 -- 	inst.components.locomotor.triggerscreep = false
-	
+
 -- 	inst.MiniMapEntity:SetIcon( "nezha.tex" )
-	
--- 	-- Stats	
+
+-- 	-- Stats
 -- 	inst.components.health:SetMaxHealth(200)
 -- 	inst.components.hunger:SetMax(200)
 -- 	inst.components.sanity:SetMax(150)
-	
+
 -- 	-- Movement speed (optional)
 -- 	inst.components.locomotor.walkspeed = 5
 -- 	inst.components.locomotor.runspeed = 8
-	
+
 -- 	-- Health regen
 -- 	inst.components.health:StartRegen(TUNING.SPIDEY_HP_Regen,1)
-	
+
 -- 	-- Damagea'd
 --     inst.components.combat:SetAttackPeriod(0.1)
-	
+
 -- 	-- Hunger rate (optional)
 -- 	inst.components.hunger.hungerrate = TUNING.WILSON_HUNGER_RATE
-	
+
 -- 	--Quick pickin'!
 -- 		local handle = inst.sg.sg.actionhandlers[ACTIONS.HARVEST]
 -- 	handle.deststate = function(inst) return "doshortaction" end
 -- 		local handle = inst.sg.sg.actionhandlers[ACTIONS.PICK]
 -- 	handle.deststate = function(inst) return "doshortaction" end
-	
+
 -- 	--nightvision
 -- 	local light = inst.entity:AddLight()
-	
+
 --     inst:ListenForEvent( "daytime", function() updatestats(inst) end , GetWorld())
 --   	inst:ListenForEvent( "dusktime", function() updatestats(inst) end , GetWorld())
 --   	inst:ListenForEvent( "nighttime", function() updatestats(inst) end , GetWorld())
 -- 	updatestats(inst)
-	
+
 -- end

@@ -6,6 +6,27 @@ local ACTIONS = GLOBAL.ACTIONS
 local Action = GLOBAL.Action
 
 TUNING.NEZHA_HP_Regen = GetModConfigData("Nezha_Hp_Regen")
+TUNING.NEZHA_Small_Stomach_Val = GetModConfigData("Nezha_small_stomach_val")
+TUNING.NEZHA_Small_Brain_Val = GetModConfigData("Nezha_small_brain_val")
+TUNING.NEZHA_Small_Heart_Val = GetModConfigData("Nezha_small_heart_val")
+TUNING.NEZHA_Big_Stomach_Val = GetModConfigData("Nezha_big_stomach_val")
+TUNING.NEZHA_Big_Brain_Val = GetModConfigData("Nezha_big_brain_val")
+TUNING.NEZHA_Big_Heart_Val = GetModConfigData("Nezha_big_heart_val")
+TUNING.NEZHA_Small_Stomach_Decline_Rate = GetModConfigData("Nezha_small_stomach_decline_rate")
+TUNING.NEZHA_Small_Brain_Decline_Rate = GetModConfigData("Nezha_small_brain_decline_rate")
+TUNING.NEZHA_Small_Heart_Decline_Rate = GetModConfigData("Nezha_small_heart_decline_rate")
+TUNING.NEZHA_Big_Stomach_Decline_Rate = GetModConfigData("Nezha_big_stomach_decline_rate")
+TUNING.NEZHA_Big_Brain_Decline_Rate = GetModConfigData("Nezha_big_brain_decline_rate")
+TUNING.NEZHA_Big_Heart_Decline_Rate = GetModConfigData("Nezha_big_heart_decline_rate")
+TUNING.NEZHA_Small_Move_Speed = GetModConfigData("Nezha_small_move_speed")
+TUNING.NEZHA_Big_Move_Speed = GetModConfigData("Nezha_big_move_speed")
+TUNING.NEZHA_Small_Defence_Val = GetModConfigData("Nezha_small_defence_val")
+TUNING.NEZHA_Big_Defence_Val = GetModConfigData("Nezha_big_defence_val")
+TUNING.NEZHA_Small_Attack_Val = GetModConfigData("Nezha_small_attack_val")
+TUNING.NEZHA_Big_Attack_Val = GetModConfigData("Nezha_big_attack_val")
+
+
+
 
 STRINGS.NAMES.NZ_LANCE = "huo jian qiang"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.NZ_LANCE = "Oops."
@@ -31,16 +52,16 @@ Assets = {
 
     Asset( "IMAGE", "images/selectscreen_portraits/nezha.tex" ),
     Asset( "ATLAS", "images/selectscreen_portraits/nezha.xml" ),
-	
+
     Asset( "IMAGE", "images/selectscreen_portraits/nezha_silho.tex" ),
     Asset( "ATLAS", "images/selectscreen_portraits/nezha_silho.xml" ),
 
     Asset( "IMAGE", "bigportraits/nezha.tex" ),
     Asset( "ATLAS", "bigportraits/nezha.xml" ),
-	
+
 	Asset( "IMAGE", "images/map_icons/nezha.tex" ),
 	Asset( "ATLAS", "images/map_icons/nezha.xml" ),
-	
+
     -- Asset("SOUNDPACKAGE", "sound/nezha.fev"),
     -- Asset("SOUND", "sound/nezha.fsb"),
 	----------------------------------------------------
@@ -88,7 +109,7 @@ local function SpawnCreature()
 	local player = GLOBAL.GetPlayer()
 	local x, y, z = player.Transform:GetWorldPosition()
 	local creature = GLOBAL.SpawnPrefab("forest/animals/beefalo")
-	creature.Transform:SetPosition( x, y, z )	
+	creature.Transform:SetPosition( x, y, z )
 end
 
 local function SkipTime()
@@ -113,13 +134,13 @@ local function AfterLoadingTheWorld(player)
 	if Test_On =="on" then
 		GLOBAL.TheInput:AddKeyDownHandler(GLOBAL.KEY_P, SpawnCreature)
 		GLOBAL.TheInput:AddKeyDownHandler(GLOBAL.KEY_O, SkipTime)
-		
+
 	end
 
-	
+
 end
 
-	
+
 
 --[NEW] Tell the engine to run the function "SpawnCreature" as soon as the player spawns in the world.
 AddSimPostInit(AfterLoadingTheWorld)
