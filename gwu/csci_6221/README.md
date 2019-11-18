@@ -18,4 +18,12 @@ In mods page, find our mod which names "Chicken Dinner Mod", double click it, an
 If you want to active our mod, then hit "Apply" button.
 
 ### Advanced operation
-After it change into "to be enabled", You can hit "Configure Mod" button to Configure page to adjust parameters of Nezha character.
+After it change into "to be enabled", You can hit "Configure Mod" button, and go to Configure page to adjust parameters of Nezha character.
+
+
+## Start a new game with our mods
+After enable our mods, you'll come back to main menu. It's time to start a new game!
+
+Hit "Play!" button, Hit "New Game" Choose "DS"or what ever you want, then hit "Character" and go to character choose menu, hit left arrow, and find our new character names The Nezha, hit "Apply" button to choose Nezha as character. Now you can start game.
+
+## Nezha in game 
