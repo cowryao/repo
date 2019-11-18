@@ -10,4 +10,10 @@ In properties window, choose LOCAL FILES, then BROWSE LOCAL FILES. Go to mod fol
 To install our mod, copy paste ChickDinner folder into mod folder 
 
 ## start our mods
-Start your don't starve, in main menu, choose mod then active our mod.
+Start your don't starve, in main menu, Hit "Mods" button.
+
+In mods page, find our mod which names "Chicken Dinner Mod", double click it, and it would show "To be Enabled",
+
+After it change into "to be enabled", You can hit "Configure Mod" button to Configure page to adjust parameters of Nezha character.
+
+If you want to active our mod, then hit "Apply" button.
