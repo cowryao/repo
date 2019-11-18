@@ -23,7 +23,7 @@ The value is the same as the normal character when the game is set up with tools
 ### (3)Specific attributes
 1. Fire resistance: normal characters lose their heart values ​​in a fire (such as igniting a forest in a forest), and no one will
 
-2. Resilience: When the heart value of 吒 is less than 5%, it will return to 20%, but only once.
+2. Resilience: When the heart value of Nezha is less than 5%, it will return to 20%, but only once.
 
 3. On the full moon night (that is, the day the pig is transformed), it will become a big form. All data is carried out according to the big form.
 
