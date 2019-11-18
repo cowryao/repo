@@ -7,7 +7,7 @@ Log in steam, go to your library, find your "Don't starve" then right click it, 
 ![choose properties](UserGuideImages/properties.jpg)
 
 In properties window, choose LOCAL FILES, then BROWSE LOCAL FILES. Go to mod folder.
-![properties window]UserGuideImages/properties_window.jpg)
+![properties window](UserGuideImages/properties_window.jpg)
 
 ## 2. install our Mods
 To install our mod, copy paste ChickDinner folder into mod folder 
