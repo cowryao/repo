@@ -1,7 +1,7 @@
 # User Guide 
 ## 1. Get don't starve
 If you don't have "Don't Starve", do not hesitate and buy one in steam, it's really a good game.
-
+![Steam picture](UserGuideImages/Steam.png)
 Log in steam, go to your library, find your "Don't starve" then right click it, then choose properties.
 
 In properties window, choose LOCAL FILES, then BROWSE LOCAL FILES. Go to mod folder.
