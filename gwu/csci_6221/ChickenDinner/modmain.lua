@@ -76,8 +76,8 @@ Assets = {
 -- The character select screen lines
 GLOBAL.STRINGS.CHARACTER_TITLES.nezha = "The Nezha"
 GLOBAL.STRINGS.CHARACTER_NAMES.nezha = "Nezha"
-GLOBAL.STRINGS.CHARACTER_DESCRIPTIONS.nezha = "*Health Regen\n*Fast (move, harvest)\n*Can see in the dark"
-GLOBAL.STRINGS.CHARACTER_QUOTES.nezha = "\"Hey! everyone\""
+GLOBAL.STRINGS.CHARACTER_DESCRIPTIONS.nezha = "*Health Regen\n*Don't fear fire\n*Big and Small status"
+GLOBAL.STRINGS.CHARACTER_QUOTES.nezha = "\"Oh! everyone\""
 
 -- Custom speech strings
 GLOBAL.STRINGS.CHARACTERS.NEZHA = require "speech_nezha"
